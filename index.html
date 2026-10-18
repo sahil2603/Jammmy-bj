@@ -112,6 +112,28 @@ button{font-family:inherit;color:inherit}
 .chip{position:absolute;z-index:6;transform:translate(-50%,-50%);width:calc(var(--cw)*.5);height:calc(var(--cw)*.5);border-radius:50%;display:grid;place-items:center;font:800 calc(var(--cw)*.13) 'Poppins';color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.5);background:radial-gradient(circle at 50% 50%,#7c3aed 0 46%,transparent 47%),repeating-conic-gradient(#fff 0 12deg,#7c3aed 12deg 30deg);box-shadow:0 0 0 2px rgba(255,255,255,.15),0 6px 14px rgba(0,0,0,.5);transition:left .45s var(--ease),top .45s var(--ease),opacity .3s,transform .3s var(--ease);pointer-events:none;font-variant-numeric:tabular-nums}
 .chip.side{width:calc(var(--cw)*.36);height:calc(var(--cw)*.36);font-size:calc(var(--cw)*.1);background:radial-gradient(circle at 50% 50%,#be185d 0 46%,transparent 47%),repeating-conic-gradient(#fff 0 12deg,#be185d 12deg 30deg)}
 .chip.gold{background:radial-gradient(circle at 50% 50%,#d97706 0 46%,transparent 47%),repeating-conic-gradient(#fff7d6 0 12deg,#d97706 12deg 30deg)}
+.chip.ins{background:radial-gradient(circle at 50% 50%,#0e7490 0 46%,transparent 47%),repeating-conic-gradient(#fff 0 12deg,#0e7490 12deg 30deg)}
+.chip.stk{transition:left .5s var(--ease),top .5s var(--ease),opacity .25s}
+.chip.gold.side,.chip.side.gold{background:radial-gradient(circle at 50% 50%,#d97706 0 46%,transparent 47%),repeating-conic-gradient(#fff7d6 0 12deg,#d97706 12deg 30deg)}
+.paytag{position:absolute;z-index:12;transform:translate(-50%,-50%) scale(.6);display:flex;flex-direction:column;align-items:center;gap:1px;padding:4px 10px 5px;border-radius:10px;background:linear-gradient(135deg,#f59e0b,#fbbf24);color:#1a1000;font:800 .78rem 'Poppins';line-height:1.15;white-space:nowrap;box-shadow:0 6px 18px rgba(251,191,36,.35);transition:transform .4s cubic-bezier(.34,1.56,.64,1),opacity .25s,left .45s var(--ease),top .45s var(--ease);pointer-events:none;font-variant-numeric:tabular-nums}
+.paytag.show{transform:translate(-50%,-50%) scale(1)}
+.paytag span{font-size:.62rem;font-weight:700;opacity:.8}
+.paytag b{font-size:.92rem}
+.insq{position:absolute;z-index:22;left:50%;top:46%;transform:translate(-50%,-50%) scale(.85);opacity:0;pointer-events:none;width:min(360px,calc(100% - 32px));padding:14px 16px 16px;border-radius:18px;background:rgba(12,6,24,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(34,211,238,.35);box-shadow:0 18px 40px rgba(0,0,0,.5),0 0 0 4px rgba(34,211,238,.08);text-align:center;transition:transform .35s cubic-bezier(.34,1.56,.64,1),opacity .2s}
+.insq.show{opacity:1;transform:translate(-50%,-50%) scale(1);pointer-events:auto}
+.insq .q1{font:400 1.35rem 'Lilita One',sans-serif;color:#a5f3fc;letter-spacing:.02em}
+.insq .q2{margin-top:4px;font-size:.84rem;color:rgba(233,213,255,.75);line-height:1.4}
+.insq .q2 img{width:15px;height:15px;vertical-align:-3px;margin:0 2px 0 3px}
+.insq .q2 b{color:#fff}
+.insq .qb{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.insq button{position:relative;height:46px;border-radius:12px;border:1px solid var(--line2);cursor:pointer;font:700 .95rem 'Poppins';color:#fff;display:flex;align-items:center;justify-content:center;gap:8px;transition:transform .1s,background .15s,box-shadow .2s}
+.insq button:active{transform:scale(.97)}
+.insq button kbd{font:600 .64rem 'Poppins';color:var(--faint);border:1px solid var(--line2);border-radius:5px;padding:1px 5px}
+.insq .yes{background:linear-gradient(180deg,rgba(34,211,238,.25),rgba(34,211,238,.08));border-color:rgba(34,211,238,.5)}
+.insq .no{background:rgba(255,255,255,.06)}
+.insq button:focus-visible{outline:2px solid #e9d5ff;outline-offset:2px}
+.insq button.sug{box-shadow:0 0 0 2px #e9d5ff,0 0 20px rgba(233,213,255,.4)}
+.insq button.sug::after{content:'AI';position:absolute;top:-8px;right:-6px;font:800 .58rem 'Poppins';letter-spacing:.06em;background:#e9d5ff;color:#2e1065;border-radius:6px;padding:2px 5px}
 .shoe{position:absolute;z-index:2;right:22px;top:18px;width:calc(var(--cw)*1.25);height:calc(var(--cw)*.92);border-radius:12px 12px 16px 16px;background:linear-gradient(180deg,#2a1748,#120a22);border:1px solid rgba(255,255,255,.1);box-shadow:0 14px 28px rgba(0,0,0,.45);transform:rotate(-6deg)}
 .shoe::before{content:'';position:absolute;left:10%;right:10%;top:12%;height:58%;border-radius:6px;background:repeating-linear-gradient(90deg,#4c1d95 0 3px,#6d28d9 3px 6px);opacity:.85}
 .shoe::after{content:'';position:absolute;left:8%;right:8%;bottom:10%;height:18%;border-radius:4px;background:rgba(0,0,0,.35)}
@@ -151,7 +173,7 @@ button{font-family:inherit;color:inherit}
 .tag.lose,.tag.bust{background:#3f3653;color:#e4dff2}
 .banner{position:absolute;z-index:20;left:50%;top:46%;padding:8px 22px 10px;border-radius:20px;background:rgba(12,6,24,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.08);transform:translate(-50%,-50%) scale(.7);opacity:0;pointer-events:none;text-align:center;transition:transform .5s cubic-bezier(.34,1.56,.64,1),opacity .3s}
 .banner.show{opacity:1;transform:translate(-50%,-50%) scale(1)}
-.banner .t{font:400 clamp(1.7rem,3.6vw,2.8rem) 'Lilita One',sans-serif;line-height:1;letter-spacing:.02em}
+.banner .t{font:400 clamp(1.5rem,3.6vw,2.8rem) 'Lilita One',sans-serif;line-height:1;letter-spacing:.02em;white-space:nowrap}
 .banner .s{margin-top:2px;font:800 clamp(.95rem,1.8vw,1.25rem) 'Poppins';font-variant-numeric:tabular-nums}
 .banner.win .t{background:linear-gradient(180deg,#fff,#86efac);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 4px 24px rgba(74,222,128,.45))}
 .banner.win .s{color:#bbf7d0}
@@ -218,6 +240,8 @@ button{font-family:inherit;color:inherit}
 .fld{min-width:0}
 @media (max-width:900px){
   :root{--cw:clamp(60px,15vw,84px)}
+  .paytag{padding:3px 7px 4px;font-size:.66rem}.paytag span{font-size:.56rem}.paytag b{font-size:.78rem}
+  .insq{padding:10px 12px 12px;border-radius:14px}.insq .q1{font-size:1.05rem}.insq .q2{font-size:.74rem;margin-top:2px}.insq .qb{margin-top:8px;gap:8px}.insq button{height:38px;font-size:.86rem}
   .game{grid-template-columns:minmax(0,1fr)}
   .table{order:-1;min-height:clamp(430px,108vw,560px);border-radius:20px}
   .panel{border-radius:18px}
@@ -229,7 +253,7 @@ button{font-family:inherit;color:inherit}
 }
 @media (max-width:420px){.brand b{display:none}.top{gap:8px}}
 @media (prefers-reduced-motion:reduce){
-  .card,.card .in,.chip,.val,.tag,.banner{transition-duration:.01s!important}
+  .card,.card .in,.chip,.val,.tag,.banner,.paytag,.insq{transition-duration:.01s!important}
   .idle img,.live-dot{animation:none}
 }
 </style>
@@ -283,6 +307,11 @@ button{font-family:inherit;color:inherit}
       <div class="idle" id="idle"><img src="jar-clean.webp" alt="">Place your bet and press Deal</div>
       <div class="banner" id="banner"><div class="t"></div><div class="s"></div></div>
       <div class="toast" id="toast"></div>
+      <div class="insq" id="insq" role="dialog" aria-label="Insurance">
+        <div class="q1">Dealer shows an Ace</div>
+        <div class="q2">Insurance? Costs <img src="jammmy-coin.webp" alt=""><b class="c">0</b>, pays 2:1 if the dealer has blackjack.</div>
+        <div class="qb"><button type="button" class="yes" data-a="insurance">Yes <kbd>Y</kbd></button><button type="button" class="no" data-a="noinsurance">No <kbd>N</kbd></button></div>
+      </div>
     </section>
   </div>
 
@@ -302,19 +331,20 @@ button{font-family:inherit;color:inherit}
     <h2 id="rulesH">Rules and payouts</h2>
     <ul>
       <li>6 decks, shuffled fresh every round.</li>
-      <li>Blackjack pays 6 to 5. Wins pay 1 to 1. Ties push.</li>
+      <li>Blackjack pays 3 to 2. Wins pay 1 to 1. Ties push.</li>
       <li>Dealer stands on all 17s and checks for blackjack when showing an Ace or a 10.</li>
       <li>Double on any first two cards, also after a split.</li>
       <li>Split once, any two cards of the same value. Split Aces get one card each.</li>
-      <li>No insurance, no surrender. Minimum bet 10 coins, side bets from 1 coin.</li>
-      <li>Return to player: about 98% with perfect strategy. Turn on Jammmy AI to see it.</li>
+      <li>When the dealer shows an Ace you can take insurance for half your bet. It pays 2 to 1 if the dealer has blackjack.</li>
+      <li>No surrender. Minimum bet 10 coins, side bets from 1 coin.</li>
+      <li>Return to player: about 99.5% with perfect strategy (never take insurance). Turn on Jammmy AI to see it.</li>
     </ul>
     <h3>Perfect Pairs <span style="color:var(--faint);font-weight:500">· your first two cards · RTP 97.7%</span></h3>
     <table class="pt"><tr><td>Perfect pair (same card)</td><td>25:1</td></tr><tr><td>Coloured pair (same colour)</td><td>12:1</td></tr><tr><td>Mixed pair</td><td>7:1</td></tr></table>
     <h3>21+3 <span style="color:var(--faint);font-weight:500">· your two cards + dealer's up card · RTP 98.5%</span></h3>
     <table class="pt"><tr><td>Suited trips</td><td>100:1</td></tr><tr><td>Straight flush</td><td>40:1</td></tr><tr><td>Three of a kind</td><td>30:1</td></tr><tr><td>Straight</td><td>11:1</td></tr><tr><td>Flush</td><td>5:1</td></tr></table>
     <h3>Keyboard</h3>
-    <p>Space deals. H hit, S stand, D double, P split.</p>
+    <p>Space deals. H hit, S stand, D double, P split. Y / N for insurance.</p>
   </div>
 </div>
 
@@ -333,11 +363,12 @@ button{font-family:inherit;color:inherit}
 <script>
 /* ===== Jammmy's Blackjack: game engine (shared by the website worker and the page's demo mode) =====
    Rules: 6 decks, shoe shuffled every round, dealer peeks for blackjack, dealer STANDS on all 17s,
-   blackjack pays 6:5, double on any first two cards (also after a split), split once (any two
-   cards of equal value), split aces get one card each, no surrender, no insurance.
-   Side bets: Perfect Pairs 25/12/7 (97.7%), 21+3 100/40/30/11/5 (98.5%). Main game ≈98.4% with perfect strategy. */
+   blackjack pays 3:2, double on any first two cards (also after a split), split once (any two
+   cards of equal value), split aces get one card each, no surrender. Insurance offered when the
+   dealer shows an Ace: costs half the main bet, pays 2:1 if the dealer has blackjack.
+   Side bets: Perfect Pairs 25/12/7 (97.7%), 21+3 100/40/30/11/5 (98.5%). */
 var BJ_RULES = {
-  decks: 6, bjPays: 1.2, minBet: 10, minSide: 1,
+  decks: 6, bjPays: 1.5, insPays: 2, minBet: 10, minSide: 1,
   pp: { perfect: 25, colored: 12, mixed: 7 },
   t21: { suitedTrips: 100, straightFlush: 40, trips: 30, straight: 11, flush: 5 },
 };
@@ -377,20 +408,26 @@ function bj21p3(a, b, c) {
 
 /* state = { shoe:[312 ints], pos, bet, pp, t21, hands:[…], active, dealer:[…], phase, side:{…}, result } */
 function bjNewRound(shoe, bet, pp, t21) {
-  var s = { shoe: shoe, pos: 0, bet: bet, pp: pp || 0, t21: t21 || 0, hands: [], active: 0, dealer: [], phase: 'player', side: {}, result: null };
+  var s = { shoe: shoe, pos: 0, bet: bet, pp: pp || 0, t21: t21 || 0, ins: 0, insOffered: false, hands: [], active: 0, dealer: [], phase: 'player', side: {}, result: null };
   var p1 = bjDraw(s), d1 = bjDraw(s), p2 = bjDraw(s), d2 = bjDraw(s);
   s.hands.push({ cards: [p1, p2], bet: bet, doubled: false, done: false, split: false, splitAces: false });
   s.dealer = [d1, d2];
   if (s.pp > 0) { var w = bjPerfectPairs(p1, p2); s.side.pp = { bet: s.pp, win: w ? w.name : null, mult: w ? w.mult : 0, pay: w ? s.pp * (w.mult + 1) : 0 }; }
   if (s.t21 > 0) { var w2 = bj21p3(p1, p2, d1); s.side.t21 = { bet: s.t21, win: w2 ? w2.name : null, mult: w2 ? w2.mult : 0, pay: w2 ? s.t21 * (w2.mult + 1) : 0 }; }
-  var upTen = bjVal(d1) === 10 || bjVal(d1) === 1;
-  var dealerBJ = bjTotal(s.dealer).total === 21;
-  if ((upTen && dealerBJ) || bjIsBJ(s.hands[0])) { s.hands[0].done = true; bjFinish(s); }
-  else if (bjTotal(s.hands[0].cards).total === 21) { s.hands[0].done = true; bjFinish(s); }
+  if (bjVal(d1) === 1) { s.insOffered = true; s.phase = 'insurance'; return s; }   /* dealer shows an Ace: ask about insurance first */
+  return bjPeek(s);
+}
+/* dealer checks for blackjack (Ace or 10 showing), then the player's turn starts */
+function bjPeek(s) {
+  var up = bjVal(s.dealer[0]);
+  var dealerBJ = (up === 10 || up === 1) && bjTotal(s.dealer).total === 21;
+  s.phase = 'player';
+  if (dealerBJ || bjTotal(s.hands[0].cards).total === 21) { s.hands[0].done = true; bjFinish(s); }
   return s;
 }
 function bjDraw(s) { return s.shoe[s.pos++]; }
 function bjActions(s) {
+  if (s.phase === 'insurance') return ['insurance', 'noinsurance'];
   if (s.phase !== 'player') return [];
   var h = s.hands[s.active];
   if (!h || h.done) return [];
@@ -401,12 +438,14 @@ function bjActions(s) {
 }
 /* extra coins an action needs (double/split = one more bet) */
 function bjActionCost(s, action) {
+  if (action === 'insurance') return s.bet / 2;
   var h = s.hands[s.active];
   if (action === 'double' || action === 'split') return h ? h.bet : 0;
   return 0;
 }
 function bjAct(s, action) {
   if (bjActions(s).indexOf(action) < 0) throw new Error('That move is not allowed now');
+  if (s.phase === 'insurance') { s.ins = action === 'insurance' ? s.bet / 2 : 0; return bjPeek(s); }
   var h = s.hands[s.active];
   if (action === 'hit') {
     h.cards.push(bjDraw(s));
@@ -459,11 +498,12 @@ function bjFinish(s) {
     h.done = true; h.outcome = o; h.pay = pay;
     payout += pay; outcomes.push(o);
   }
-  var sidePay = (s.side.pp ? s.side.pp.pay : 0) + (s.side.t21 ? s.side.t21.pay : 0);
-  var wagered = s.hands.reduce(function (a, h) { return a + h.bet; }, 0) + s.pp + s.t21;
+  var insPay = s.ins > 0 && dealerBJ ? s.ins * (BJ_RULES.insPays + 1) : 0;
+  var sidePay = (s.side.pp ? s.side.pp.pay : 0) + (s.side.t21 ? s.side.t21.pay : 0) + insPay;
+  var wagered = s.hands.reduce(function (a, h) { return a + h.bet; }, 0) + s.pp + s.t21 + (s.ins || 0);
   var total = Math.round((payout + sidePay) * 100) / 100;
   s.phase = 'done';
-  s.result = { main: payout, side: sidePay, total: total, wagered: wagered, profit: Math.round((total - wagered) * 100) / 100, dealerTotal: dt, dealerBJ: dealerBJ, outcomes: outcomes };
+  s.result = { main: payout, side: sidePay, total: total, wagered: wagered, profit: Math.round((total - wagered) * 100) / 100, dealerTotal: dt, dealerBJ: dealerBJ, outcomes: outcomes, ins: s.ins || 0, insPay: insPay };
   return s;
 }
 /* what the player is allowed to see: hole card hidden while the round runs, never the shoe */
@@ -471,7 +511,7 @@ function bjPublic(s) {
   var done = s.phase === 'done';
   var dealer = done ? s.dealer.slice() : [s.dealer[0], -1];
   return {
-    phase: s.phase, bet: s.bet, pp: s.pp, t21: s.t21, active: s.active,
+    phase: s.phase, bet: s.bet, pp: s.pp, t21: s.t21, ins: s.ins || 0, insOffered: !!s.insOffered, active: s.active,
     hands: s.hands.map(function (h) { var t = bjTotal(h.cards); return { cards: h.cards.slice(), bet: h.bet, doubled: h.doubled, split: h.split, done: h.done, total: t.total, soft: t.soft, outcome: h.outcome || null, pay: h.pay || 0, bj: bjIsBJ(h) && s.hands.length === 1 }; }),
     dealer: dealer, dealerTotal: done ? bjTotal(s.dealer).total : bjTotal([s.dealer[0]]).total, dealerSoft: done ? bjTotal(s.dealer).soft : bjTotal([s.dealer[0]]).soft,
     side: s.side, actions: bjActions(s), result: s.result,
@@ -479,6 +519,7 @@ function bjPublic(s) {
 }
 /* Jammmy AI: basic strategy for these exact rules (6D, S17, DAS, no surrender) */
 function bjHint(pub) {
+  if (pub && pub.phase === 'insurance') return 'noinsurance';   /* basic strategy never takes insurance */
   if (!pub || pub.phase !== 'player') return null;
   var h = pub.hands[pub.active]; if (!h) return null;
   var up = bjVal(pub.dealer[0]); if (up === 1) up = 11;
@@ -573,7 +614,18 @@ var SND = (function () {
     get on() { return on; },
     toggle: function () { on = !on; store.set('jbj_sound', on ? '1' : '0'); if (on) { init(); this.chip(); } return on; },
     unlock: function () { if (on) { init(); if (ctx && ctx.state === 'suspended') ctx.resume(); } },
-    deal: function () { if (!ok()) return; var t = ctx.currentTime; burst(t, 0.13, 1800, 6500, 1.1, 0.42); tone(t + 0.07, 150, 0.07, 0.12, 'sine', 70); },
+    /* card dealt: a soft paper slide across the felt, then a light tap as it lands */
+    deal: function () {
+      if (!ok()) return; var t = ctx.currentTime, v = 0.85 + Math.random() * 0.3;
+      var s = ctx.createBufferSource(); s.buffer = noise;
+      var hp = ctx.createBiquadFilter(); hp.type = 'highpass'; hp.frequency.value = 900;
+      var lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.Q.value = 0.7;
+      lp.frequency.setValueAtTime(2200, t); lp.frequency.exponentialRampToValueAtTime(5200 * v, t + 0.09); lp.frequency.exponentialRampToValueAtTime(1800, t + 0.15);
+      var g = ctx.createGain(); g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.16 * v, t + 0.06); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.16);
+      s.connect(hp); hp.connect(lp); lp.connect(g); g.connect(master); s.start(t, Math.random() * 0.5); s.stop(t + 0.2);
+      burst(t + 0.13, 0.035, 3200, 1400, 0.9, 0.2 * v, 'lowpass');
+      tone(t + 0.13, 210, 0.05, 0.035, 'sine', 120);
+    },
     flip: function () { if (!ok()) return; var t = ctx.currentTime; burst(t, 0.06, 4200, 2600, 2.2, 0.22); tone(t + 0.02, 900, 0.04, 0.05, 'triangle'); },
     chip: function () { if (!ok()) return; var t = ctx.currentTime; [0, 0.055].forEach(function (d, i) { tone(t + d, 2850 + i * 380, 0.09, 0.09, 'sine'); tone(t + d, 4300 + i * 300, 0.06, 0.05, 'sine'); burst(t + d, 0.03, 6000, 4000, 1.5, 0.12); }); },
     shuffle: function () {
@@ -608,7 +660,8 @@ document.addEventListener('pointerdown', function () { SND.unlock(); }, { once: 
 var felt = $('felt');
 var els = {};            /* key → card element */
 var shown = null;        /* what is on the table right now */
-var chips = { main: [], pp: null, t21: null };
+var chips = { main: [], pp: null, t21: null, ins: null };
+var stacks = [];          /* winnings stacked on top of a bet chip */
 var vals = { dealer: null, hands: [] };
 function cw() { return parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--cw')) || felt.querySelector('.card') && felt.querySelector('.card').offsetWidth || 96; }
 function cardW() { var c = felt.querySelector('.card'); return c ? c.offsetWidth : cwPx(); }
@@ -618,7 +671,8 @@ function geo() {
   var W = felt.clientWidth, H = felt.clientHeight, w = CW, h = w * 1.4;
   return { W: W, H: H, w: w, h: h, dealerY: Math.max(14, H * 0.07), playerY: H * 0.56, shoeX: W - 22 - w * 1.25 / 2 - w / 2, shoeY: 14, discardX: 22, discardY: 22 };
 }
-function handCenters(n, g) { return n === 1 ? [g.W / 2] : [g.W * 0.29, g.W * 0.71]; }
+/* after a split the first hand (played and dealt first) sits on the player's right, like a real dealer working left to right from their side */
+function handCenters(n, g) { return n === 1 ? [g.W / 2] : [g.W * 0.71, g.W * 0.29]; }
 function drawArc() {
   var g = geo(), svg = $('arc');
   svg.setAttribute('viewBox', '0 0 ' + g.W + ' ' + g.H);
@@ -629,8 +683,8 @@ function drawArc() {
   svg.innerHTML = '<defs><linearGradient id="rb" x1="0" x2="1"><stop offset="0" stop-color="#a855f7"/><stop offset=".2" stop-color="#5b8def"/><stop offset=".38" stop-color="#22d3ee"/><stop offset=".54" stop-color="#3ddc84"/><stop offset=".7" stop-color="#ffd23d"/><stop offset=".85" stop-color="#ff7a3d"/><stop offset="1" stop-color="#ff3db6"/></linearGradient>'
     + '<path id="ap" d="' + p + '"/><path id="ap2" d="' + p2 + '"/></defs>'
     + '<path d="' + curve(0, -16) + '" stroke="url(#rb)" stroke-width="2.5" fill="none" opacity=".55" stroke-linecap="round"/>'
-    + '<text text-anchor="middle"><textPath href="#ap" startOffset="50%">BLACKJACK PAYS 6 TO 5</textPath></text>'
-    + '<text class="rules2" text-anchor="middle"><textPath href="#ap2" startOffset="50%">DEALER STANDS ON ALL 17s · NO INSURANCE</textPath></text>';
+    + '<text text-anchor="middle"><textPath href="#ap" startOffset="50%">BLACKJACK PAYS 3 TO 2</textPath></text>'
+    + '<text class="rules2" text-anchor="middle"><textPath href="#ap2" startOffset="50%">DEALER STANDS ON ALL 17s · INSURANCE PAYS 2 TO 1</textPath></text>';
 }
 function suitChar(c) { return ['♠', '♥', '♦', '♣'][bjSuit(c)]; }
 function rankChar(c) { return ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'][bjRank(c)]; }
@@ -675,6 +729,13 @@ function layout() {
   chips.main.forEach(function (ch, hi) { if (!ch) return; ch.style.left = centers[hi] + 'px'; ch.style.top = spotY + 'px'; });
   if (chips.pp) { chips.pp.style.left = $('spotPP').style.left; chips.pp.style.top = (g.H - g.w * 0.62 - g.w * 0.62) + 'px'; }
   if (chips.t21) { chips.t21.style.left = $('spotT21').style.left; chips.t21.style.top = (g.H - g.w * 0.62 - g.w * 0.62) + 'px'; }
+  if (chips.ins) { chips.ins.style.left = Math.max(g.w * 0.3, Math.min.apply(null, centers) - g.w * 1.35) + 'px'; chips.ins.style.top = (g.playerY + g.h * 0.66) + 'px'; }
+  stacks.forEach(function (st) {
+    var a = st.anchor(); if (!a || !a.style.left) return;
+    var x = parseFloat(a.style.left), y = parseFloat(a.style.top), gap = a.offsetHeight * 0.16;
+    st.els.forEach(function (e, i) { if (e.dataset.landed) { e.style.left = x + 'px'; e.style.top = (y - (i + 1) * gap) + 'px'; } });
+    if (st.tag) { st.tag.style.left = x + 'px'; st.tag.style.top = (y - st.els.length * gap - a.offsetHeight * 0.5 - 14) + 'px'; }
+  });
   /* outcome tags sit above each hand */
   shown.hands.forEach(function (cards, hi) {
     var t = felt.querySelector('.tag[data-h="' + hi + '"]'); if (!t) return;
@@ -715,7 +776,7 @@ function addCard(key, c, faceUp) {
 }
 function placeChip(kind, amount, hi) {
   if (!(amount > 0)) return null;
-  var ch = document.createElement('div'); ch.className = 'chip' + (kind === 'main' ? '' : ' side');
+  var ch = document.createElement('div'); ch.className = 'chip' + (kind === 'main' ? '' : kind === 'ins' ? ' side ins' : ' side');
   ch.textContent = shortNum(amount);
   var g = geo(); ch.style.left = (g.W / 2) + 'px'; ch.style.top = (g.H + 40) + 'px'; ch.style.opacity = 0;
   felt.appendChild(ch);
@@ -726,6 +787,26 @@ function placeChip(kind, amount, hi) {
   return ch;
 }
 function shortNum(n) { n = Number(n); return n >= 1e6 ? (n / 1e6).toFixed(n % 1e6 ? 1 : 0) + 'M' : n >= 1e4 ? Math.round(n / 1e3) + 'K' : n >= 1000 ? (n / 1e3).toFixed(1).replace(/\.0$/, '') + 'K' : fmt(n); }
+/* winnings fly in from the dealer and stack on top of the bet chip, with the amount on a tag */
+function payStack(anchorFn, amount, label, n) {
+  var a = anchorFn(); if (!a || !(amount > 0)) return;
+  var g = geo(), st = { anchor: anchorFn, els: [], tag: null };
+  stacks.push(st);
+  var big = !a.classList.contains('side');
+  for (var i = 0; i < n; i++) {
+    var c = document.createElement('div'); c.className = 'chip gold stk' + (big ? '' : ' side');
+    c.textContent = i === n - 1 ? shortNum(amount) : '';
+    c.style.left = (g.W / 2) + 'px'; c.style.top = (g.dealerY + g.h * 0.6) + 'px'; c.style.opacity = 0; c.style.zIndex = 7 + i;
+    felt.appendChild(c); st.els.push(c);
+  }
+  var tag = null;
+  if (label) { tag = document.createElement('div'); tag.className = 'paytag'; tag.innerHTML = '<span>' + esc(label) + '</span><b>+' + fmt(amount) + '</b>'; tag.style.opacity = 0; felt.appendChild(tag); }
+  st.tag = tag;
+  st.els.forEach(function (c, i) {
+    setTimeout(function () { c.getBoundingClientRect(); c.style.opacity = 1; c.dataset.landed = 1; layout(); SND.chip(); }, (60 + i * 110) * SP);
+  });
+  setTimeout(function () { layout(); if (tag) { tag.style.opacity = 1; tag.classList.add('show'); } }, (120 + n * 110) * SP);
+}
 async function clearTable() {
   var g = geo(), list = felt.querySelectorAll('.card');
   hideBanner();
@@ -734,12 +815,13 @@ async function clearTable() {
   $('spotPP').classList.remove('won', 'lost'); $('spotT21').classList.remove('won', 'lost');
   if (list.length) {
     list.forEach(function (el, i) { el.style.transition = 'transform ' + (0.45 * SP) + 's cubic-bezier(.4,0,.2,1), opacity .35s'; el.classList.remove('up', 'glow', 'dim'); pos(el, g.discardX + i * 0.6, g.discardY - i * 0.6, 6); el.style.zIndex = 4; });
-    [].concat(chips.main, [chips.pp, chips.t21]).forEach(function (c) { if (c) { c.style.opacity = 0; } });
+    [].concat(chips.main, [chips.pp, chips.t21, chips.ins]).forEach(function (c) { if (c) { c.style.opacity = 0; } });
+    stacks.forEach(function (st) { st.els.forEach(function (e) { e.style.opacity = 0; }); if (st.tag) st.tag.style.opacity = 0; });
     await wait(480 * SP);
     list.forEach(function (el) { el.remove(); });
   }
-  felt.querySelectorAll('.chip,.val').forEach(function (c) { c.remove(); });
-  els = {}; chips = { main: [], pp: null, t21: null };
+  felt.querySelectorAll('.chip,.val,.paytag').forEach(function (c) { c.remove(); });
+  els = {}; chips = { main: [], pp: null, t21: null, ins: null }; stacks = [];
 }
 window.addEventListener('resize', function () { CW = cwPx(); drawArc(); felt.querySelectorAll('.card,.chip,.val').forEach(function (e) { e.style.transition = 'none'; }); layout(); requestAnimationFrame(function () { felt.querySelectorAll('.card').forEach(function (e) { e.style.transition = ''; }); felt.querySelectorAll('.chip,.val').forEach(function (e) { e.style.transition = ''; }); }); });
 
@@ -767,12 +849,22 @@ function showSideResults(pub) {
   ['pp', 't21'].forEach(function (k) {
     var sd = pub.side && pub.side[k]; if (!sd) return;
     var spot = $(k === 'pp' ? 'spotPP' : 'spotT21');
-    if (sd.win) { spot.classList.add('won'); if (chips[k]) chips[k].classList.add('gold'); any.push(sd.win + ' ' + sd.mult + ':1 · +' + fmt(sd.pay)); }
+    if (sd.win) { spot.classList.add('won'); if (chips[k]) chips[k].classList.add('gold'); any.push(k); payStack(function () { return chips[k]; }, sd.pay, sd.win + ' ' + sd.mult + ':1', sd.mult >= 25 ? 4 : sd.mult >= 10 ? 3 : 2); }
     else { spot.classList.add('lost'); if (chips[k]) chips[k].style.opacity = 0.25; }
   });
-  if (any.length) { SND.side(); toast('🎉 ' + any.join('   ')); }
+  if (any.length) SND.side();
 }
 async function animateTo(pub) {
+  /* insurance decided */
+  if (ROUND && ROUND.phase === 'insurance' && pub.phase !== 'insurance') {
+    hideIns();
+    if (pub.ins > 0 && !chips.ins) { placeChip('ins', pub.ins); await wait(380 * SP); }
+    if (pub.phase !== 'done' || !(pub.result && pub.result.dealerBJ)) {
+      toast('Dealer does not have blackjack' + (pub.ins > 0 ? '. Insurance lost.' : '.'));
+      if (chips.ins) chips.ins.style.opacity = 0.25;
+      await wait(500 * SP);
+    }
+  }
   /* split: second card becomes the first card of hand 2 */
   if (pub.hands.length > shown.hands.length) {
     var moved = shown.hands[0].pop();
@@ -815,14 +907,16 @@ async function animateFinish(pub) {
     v.textContent = o === 'blackjack' ? 'Blackjack · +' + fmt(h.pay) : o === 'win' ? tot + ' · Win +' + fmt(h.pay) : o === 'push' ? tot + ' · Push' : o === 'bust' ? tot + ' · Bust' : tot + ' · Lose';
     v.dataset.final = 1;
     shown.hands[hi].forEach(function (c, ci) { var el = els['h' + hi + 'c' + ci]; if (!el) return; if (o === 'blackjack') el.classList.add('glow'); if (o === 'lose' || o === 'bust') el.classList.add('dim'); });
-    if (chips.main[hi]) { if (o === 'win' || o === 'blackjack') chips.main[hi].classList.add('gold'); else if (o !== 'push') chips.main[hi].style.opacity = 0.3; }
+    if (chips.main[hi]) { if (o === 'win' || o === 'blackjack') { chips.main[hi].classList.add('gold'); (function (k) { payStack(function () { return chips.main[k]; }, h.pay, '', o === 'blackjack' ? 3 : 2); })(hi); } else if (o !== 'push') chips.main[hi].style.opacity = 0.3; }
   });
+  if (pub.result && pub.result.insPay > 0 && chips.ins) { chips.ins.classList.add('gold'); payStack(function () { return chips.ins; }, pub.result.insPay, 'Insurance 2:1', 2); }
   var r = pub.result, oc = r.outcomes, isBJ = oc.indexOf('blackjack') >= 0;
   var mainWin = isBJ || oc.indexOf('win') >= 0, allPush = oc.every(function (o) { return o === 'push'; });
   var net = Math.round((r.total - r.wagered) * 100) / 100;
   var sub = net > 0 ? '+' + fmt(net) : net < 0 ? (r.total > 0 ? fmt(net) + ' net' : '') : 'Even';
   if (isBJ) { showBanner('bj', 'Blackjack!', sub); SND.bj(); coinBurst(26); }
   else if (mainWin || net > 0) { showBanner('win', mainWin ? (oc.length > 1 && oc.indexOf('win') !== oc.lastIndexOf('win') ? 'Double win' : 'You win') : 'Side bet win', sub); SND.win(); if (net > 0) coinBurst(14); }
+  else if (r.insPay > 0) { showBanner('push', 'Insurance pays', net === 0 ? 'Even' : sub); SND.push(); }
   else if (allPush) { showBanner('push', 'Push', net === 0 ? 'Bet returned' : sub); SND.push(); }
   else { showBanner('lose', r.dealerBJ ? 'Dealer blackjack' : (oc.every(function (o) { return o === 'bust'; }) ? 'Bust' : 'Dealer wins'), r.total > 0 ? '+' + fmt(r.total) + ' back' : ''); SND.lose(); }
 }
@@ -865,9 +959,20 @@ function refreshBetInfo() {
 [betEl, ppEl, t21El].forEach(function (e) { e.addEventListener('input', refreshBetInfo); e.addEventListener('keydown', function (ev) { if (ev.key === 'Enter') { ev.preventDefault(); deal(); } }); });
 document.querySelectorAll('.q').forEach(function (b) { b.onclick = function () { var v = Math.floor(+betEl.value || 10); v = b.dataset.q === 'half' ? Math.max(10, Math.floor(v / 2)) : Math.min(SETTINGS.max_bet, Math.max(10, v * 2)); betEl.value = v; refreshBetInfo(); SND.chip(); }; });
 $('aiOn').onchange = function () { store.set('jbj_ai', this.checked ? '1' : '0'); updateControls(); };
+function inPlay(p) { return !!(p && (p.phase === 'player' || p.phase === 'insurance')); }
+function showIns() {
+  var b = $('insq'); var cost = ROUND.bet / 2;
+  b.querySelector('.c').textContent = fmt(cost);
+  var hint = $('aiOn').checked;
+  b.querySelector('[data-a="noinsurance"]').classList.toggle('sug', hint);
+  b.classList.add('show');
+}
+function hideIns() { $('insq').classList.remove('show'); }
+document.querySelectorAll('#insq button').forEach(function (b) { b.onclick = function () { act(b.dataset.a); }; });
 function setMsg(t) { $('msg').textContent = t || ''; }
 function updateControls() {
-  var inRound = ROUND && ROUND.phase === 'player';
+  var inRound = inPlay(ROUND);
+  if (ROUND && ROUND.phase === 'insurance' && !BUSY) showIns(); else if (!ROUND || ROUND.phase !== 'insurance') hideIns();
   $('dealBtn').disabled = BUSY || inRound;
   $('dealBtn').textContent = inRound ? 'Hand in play' : 'Deal';
   [betEl, ppEl, t21El].forEach(function (e) { e.disabled = BUSY || inRound; });
@@ -877,7 +982,7 @@ function updateControls() {
     var a = b.dataset.a; b.disabled = acts.indexOf(a) < 0;
     b.classList.toggle('sug', !!hint && hint === a && !BUSY);
   });
-  var names = { hit: 'Hit', stand: 'Stand', double: 'Double', split: 'Split' };
+  var names = { hit: 'Hit', stand: 'Stand', double: 'Double', split: 'Split', noinsurance: 'No insurance', insurance: 'Take insurance' };
   $('aiTxt').innerHTML = !$('aiOn').checked ? '<b>Jammmy AI</b> suggests the best move for every hand.'
     : hint ? '<b>Jammmy AI:</b> ' + names[hint] + (ROUND.hands.length > 1 ? ' (hand ' + (ROUND.active + 1) + ')' : '') : '<b>Jammmy AI</b> is watching. Deal a hand.';
 }
@@ -887,8 +992,8 @@ document.addEventListener('keydown', function (e) {
   if (e.target && /INPUT|TEXTAREA/.test(e.target.tagName)) return;
   if (!$('m-rules').classList.contains('hide') || !$('m-fair').classList.contains('hide')) { if (e.key === 'Escape') closeModal(); return; }
   var k = e.key.toLowerCase();
-  if (k === ' ' || k === 'enter') { e.preventDefault(); if (!(ROUND && ROUND.phase === 'player')) deal(); return; }
-  var map = { h: 'hit', s: 'stand', d: 'double', p: 'split' };
+  if (k === ' ' || k === 'enter') { e.preventDefault(); if (!inPlay(ROUND)) deal(); return; }
+  var map = ROUND && ROUND.phase === 'insurance' ? { y: 'insurance', n: 'noinsurance' } : { h: 'hit', s: 'stand', d: 'double', p: 'split' };
   if (map[k]) act(map[k]);
 });
 
@@ -907,7 +1012,7 @@ async function api(path, body) {
 }
 
 async function deal() {
-  if (BUSY || (ROUND && ROUND.phase === 'player')) return;
+  if (BUSY || inPlay(ROUND)) return;
   var n = nums(); setMsg('');
   if (n.bet < 10) return setMsg('Minimum bet is 10 coins.');
   if (n.bet > SETTINGS.max_bet) return setMsg('Maximum bet is ' + fmt(SETTINGS.max_bet) + ' coins.');
@@ -934,10 +1039,10 @@ async function deal() {
   finally { BUSY = false; updateControls(); }
 }
 async function act(a) {
-  if (BUSY || !ROUND || ROUND.phase !== 'player' || ROUND.actions.indexOf(a) < 0) return;
+  if (BUSY || !inPlay(ROUND) || ROUND.actions.indexOf(a) < 0) return;
   setMsg('');
-  var cost = (a === 'double' || a === 'split') ? ROUND.hands[ROUND.active].bet : 0;
-  if (cost > BAL) return setMsg('Not enough Jammmy Coins to ' + a + '.');
+  var cost = a === 'insurance' ? ROUND.bet / 2 : (a === 'double' || a === 'split') ? ROUND.hands[ROUND.active].bet : 0;
+  if (cost > BAL) return setMsg(a === 'insurance' ? 'Not enough Jammmy Coins for insurance.' : 'Not enough Jammmy Coins to ' + a + '.');
   BUSY = true; updateControls();
   try {
     var pub, newBal;
@@ -950,7 +1055,7 @@ async function act(a) {
       pub = demoAct(a); newBal = BAL;
       setBalance(pub.phase === 'done' ? BAL - pub.result.total : BAL, false);
     }
-    if (a === 'double' || a === 'split') SND.chip();
+    if (a === 'double' || a === 'split' || a === 'insurance') SND.chip();
     await animateTo(pub);
     if (pub.phase === 'done') roundDone(pub, newBal);
   } catch (e) { setMsg('Connection problem. Your hand is saved, refresh to continue.'); console.error(e); }
