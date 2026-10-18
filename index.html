@@ -63,6 +63,26 @@ button{font-family:inherit;color:inherit}
 .amt .q{flex:none;height:34px;min-width:40px;padding:0 10px;border-radius:10px;border:0;background:rgba(255,255,255,.07);font:700 .8rem 'Poppins';cursor:pointer;transition:background .15s}
 .amt .q:hover{background:rgba(255,255,255,.14)}
 .sides{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fld label em{font-style:normal;display:inline-flex;align-items:center;gap:5px}
+.sbi{width:18px;height:18px;padding:0;border:0;border-radius:50%;background:none;color:var(--faint);cursor:pointer;display:grid;place-items:center;transition:color .15s,background .15s}
+.sbi svg{width:15px;height:15px}
+.sbi:hover,.sbi[aria-expanded="true"]{color:#e9d5ff;background:rgba(233,213,255,.12)}
+.sbi:focus-visible{outline:2px solid #e9d5ff;outline-offset:1px}
+.sbpop{grid-column:1/-1;display:none;padding:12px 13px 11px;border-radius:14px;background:rgba(10,5,20,.7);border:1px solid var(--line2);font-size:.8rem;color:var(--muted);animation:sbin .22s var(--ease)}
+.sbpop.show{display:block}
+@keyframes sbin{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+.sbp{display:none}.sbp.on{display:block}
+.sbp .h{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+.sbp .h b{color:#fff;font-size:.9rem}
+.sbp .x{border:0;background:none;color:var(--faint);cursor:pointer;font-size:.85rem;padding:2px 4px;border-radius:6px}
+.sbp .x:hover{color:#fff}
+.sbp p{margin:0 0 8px;line-height:1.4}
+.sbp table{width:100%;border-collapse:collapse;margin-bottom:8px}
+.sbp td{padding:6px 0;border-top:1px solid rgba(255,255,255,.06);color:#fff;font-weight:600;vertical-align:top}
+.sbp td small{display:block;font-weight:500;color:var(--faint);font-size:.72rem;margin-top:1px}
+.sbp td:last-child{text-align:right;color:var(--gold);font-weight:800;white-space:nowrap;padding-left:10px}
+.sbp .ex{color:#fde68a;font-size:.76rem}
+.sbpop .note{margin:0;font-size:.72rem;color:var(--faint)}
 .sides .amt{padding-left:10px}
 .sides .amt input{font-size:.92rem}
 .tot{display:flex;justify-content:space-between;font-size:.82rem;color:var(--muted);padding:2px 2px 0}
@@ -277,8 +297,23 @@ button{font-family:inherit;color:inherit}
         <div class="amt"><img src="jammmy-coin.webp" alt=""><input id="bet" type="number" inputmode="numeric" min="10" step="1" value="10" aria-label="Bet amount in Jammmy Coins"><button class="q" type="button" data-q="half">½</button><button class="q" type="button" data-q="double">2×</button></div>
       </div>
       <div class="sides">
-        <div class="fld"><label for="pp">Perfect Pairs <span>25:1</span></label><div class="amt"><input id="pp" type="number" inputmode="numeric" min="0" step="1" value="0" aria-label="Perfect Pairs side bet"></div></div>
-        <div class="fld"><label for="t21">21+3 <span>100:1</span></label><div class="amt"><input id="t21" type="number" inputmode="numeric" min="0" step="1" value="0" aria-label="21+3 side bet"></div></div>
+        <div class="fld"><label for="pp"><em>Perfect Pairs<button type="button" class="sbi" data-sb="pp" aria-label="Perfect Pairs payouts" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5M12 7.8v.01"/></svg></button></em><span>25:1</span></label><div class="amt"><input id="pp" type="number" inputmode="numeric" min="0" step="1" value="0" aria-label="Perfect Pairs side bet"></div></div>
+        <div class="fld"><label for="t21"><em>21+3<button type="button" class="sbi" data-sb="t21" aria-label="21+3 payouts" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5M12 7.8v.01"/></svg></button></em><span>100:1</span></label><div class="amt"><input id="t21" type="number" inputmode="numeric" min="0" step="1" value="0" aria-label="21+3 side bet"></div></div>
+        <div class="sbpop" id="sbpop" role="region" aria-live="polite">
+          <div class="sbp" data-sb="pp">
+            <div class="h"><b>Perfect Pairs</b><button type="button" class="x" aria-label="Close">✕</button></div>
+            <p>Wins when your first two cards are a pair.</p>
+            <table><tr><td>Perfect pair <small>same suit, e.g. 8♠ 8♠</small></td><td>25:1</td></tr><tr><td>Coloured pair <small>same colour, e.g. 8♥ 8♦</small></td><td>12:1</td></tr><tr><td>Mixed pair <small>red and black, e.g. 8♠ 8♥</small></td><td>7:1</td></tr></table>
+            <p class="ex">Bet 10 on a perfect pair and get 260 back (250 win + your 10).</p>
+          </div>
+          <div class="sbp" data-sb="t21">
+            <div class="h"><b>21+3</b><button type="button" class="x" aria-label="Close">✕</button></div>
+            <p>Your two cards plus the dealer's face-up card make a 3-card poker hand.</p>
+            <table><tr><td>Suited trips <small>e.g. 7♥ 7♥ 7♥</small></td><td>100:1</td></tr><tr><td>Straight flush <small>e.g. 5♣ 6♣ 7♣</small></td><td>40:1</td></tr><tr><td>Three of a kind <small>e.g. 7♠ 7♥ 7♦</small></td><td>30:1</td></tr><tr><td>Straight <small>e.g. 5♠ 6♥ 7♦</small></td><td>11:1</td></tr><tr><td>Flush <small>e.g. 2♦ 9♦ K♦</small></td><td>5:1</td></tr></table>
+            <p class="ex">Bet 10 on a straight and get 120 back (110 win + your 10).</p>
+          </div>
+          <p class="note">Side bets are paid on the deal, whatever happens to your main hand.</p>
+        </div>
       </div>
       <div class="tot"><span>Total bet</span><b id="totBet">10</b></div>
       <button class="deal" id="dealBtn" type="button">Deal</button>
@@ -969,6 +1004,19 @@ function showIns() {
 }
 function hideIns() { $('insq').classList.remove('show'); }
 document.querySelectorAll('#insq button').forEach(function (b) { b.onclick = function () { act(b.dataset.a); }; });
+/* side bet payout info */
+function sbShow(k) {
+  var pop = $('sbpop'), open = pop.classList.contains('show') && pop.dataset.k === k;
+  document.querySelectorAll('.sbi').forEach(function (b) { b.setAttribute('aria-expanded', !open && b.dataset.sb === k ? 'true' : 'false'); });
+  if (open || !k) { pop.classList.remove('show'); pop.dataset.k = ''; return; }
+  pop.dataset.k = k; pop.querySelectorAll('.sbp').forEach(function (e) { e.classList.toggle('on', e.dataset.sb === k); });
+  pop.classList.add('show');
+}
+document.querySelectorAll('.sbi').forEach(function (b) { b.onclick = function (e) { e.preventDefault(); e.stopPropagation(); sbShow(b.dataset.sb); }; });
+document.querySelectorAll('.sbp .x').forEach(function (b) { b.onclick = function () { sbShow(null); }; });
+document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && $('sbpop').classList.contains('show')) sbShow(null); });
+$('spotPP').style.pointerEvents = 'auto'; $('spotPP').style.cursor = 'pointer'; $('spotPP').title = 'Perfect Pairs payouts'; $('spotPP').onclick = function () { sbShow('pp'); $('sbpop').scrollIntoView({ block: 'nearest', behavior: 'smooth' }); };
+$('spotT21').style.pointerEvents = 'auto'; $('spotT21').style.cursor = 'pointer'; $('spotT21').title = '21+3 payouts'; $('spotT21').onclick = function () { sbShow('t21'); $('sbpop').scrollIntoView({ block: 'nearest', behavior: 'smooth' }); };
 function setMsg(t) { $('msg').textContent = t || ''; }
 function updateControls() {
   var inRound = inPlay(ROUND);
